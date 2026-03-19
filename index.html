@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>منصة المشروع المستدام</title>
+
+<!-- مكتبة الرسم البياني -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body {
+margin: 0;
+font-family: "Tahoma";
+background: #0b132b;
+color: white;
+}
+
+header {
+text-align: center;
+padding: 25px;
+background: linear-gradient(90deg,#1c2541,#3a506b);
+}
+
+nav {
+display: flex;
+overflow-x: auto;
+background: #1c2541;
+}
+
+nav button {
+flex: 1;
+padding: 12px;
+border: none;
+background: none;
+color: white;
+cursor: pointer;
+}
+
+nav button:hover {
+background: #3a506b;
+}
+
+.section {
+display: none;
+padding: 20px;
+}
+
+.active {
+display: block;
+}
+
+.card {
+background: #1c2541;
+padding: 18px;
+border-radius: 12px;
+margin-bottom: 15px;
+line-height: 1.8;
+}
+
+.highlight {
+color: #5bc0be;
+}
+
+button.mode {
+background: #e63946;
+border: none;
+padding: 10px;
+margin-top: 10px;
+color: white;
+border-radius: 8px;
+cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>⚡ إنتاج الطاقة من مياه الصرف الصحي</h1>
+<p>باستخدام الخلايا الوقودية الميكروبية</p>
+<button class="mode" onclick="presentationMode()">🎤 وضع العرض</button>
+</header>
+
+<nav>
+<button onclick="show('idea')">الفكرة</button>
+<button onclick="show('science')">الأساس العلمي</button>
+<button onclick="show('components')">المكونات</button>
+<button onclick="show('steps')">التجربة</button>
+<button onclick="show('results')">النتائج</button>
+<button onclick="show('analysis')">التحليل</button>
+<button onclick="show('chart')">الرسم البياني</button>
+<button onclick="show('impact')">الأثر</button>
+<button onclick="show('future')">الاستدامة</button>
+</nav>
+
+<!-- الفكرة -->
+<div id="idea" class="section active">
+<div class="card">
+<h2>💡 فكرة المشروع</h2>
+<p>
+تحويل مياه الصرف إلى طاقة كهربائية عبر نشاط البكتيريا التي تطلق إلكترونات يتم تحويلها إلى تيار كهربائي.
+</p>
+</div>
+</div>
+
+<!-- الأساس العلمي -->
+<div id="science" class="section">
+<div class="card">
+<h2>🧠 الأساس العلمي</h2>
+<p>
+تعتمد الخلايا الوقودية الميكروبية على الأكسدة الحيوية، حيث تقوم البكتيريا بتحليل المواد العضوية وإطلاق الإلكترونات.
+</p>
+</div>
+</div>
+
+<!-- المكونات -->
+<div id="components" class="section">
+<div class="card">
+<h2>🔬 المكونات</h2>
+<ul>
+<li>أرز مخمر</li>
+<li>تربة زراعية</li>
+<li>مياه / ماء وملح</li>
+<li>مسامير مجلفنة</li>
+<li>كربون</li>
+<li>أسلاك توصيل</li>
+<li>جهاز قياس الجهد</li>
+</ul>
+</div>
+</div>
+
+<!-- التجربة -->
+<div id="steps" class="section">
+<div class="card">
+<h2>🧪 التجربة</h2>
+<p>
+تم تخمير الأرز ثم خلطه مع التربة وتركه لمدة أسبوع حتى ظهور نشاط بكتيري واضح.
+</p>
+<p>
+تم إدخال الأقطاب (مسامير + كربون) وتوصيلها بدائرة كهربائية مع حجرة ماء لتبادل الأيونات.
+</p>
+<p>
+تم قياس الجهد باستخدام جهاز الفولتميتر وتكرار التجربة مرتين.
+</p>
+</div>
+</div>
+
+<!-- النتائج -->
+<div id="results" class="section">
+<div class="card">
+<h2>📊 النتائج</h2>
+<p>
+تم الوصول إلى جهد كهربائي يقارب <span class="highlight">2 فولت</span>.
+</p>
+</div>
+</div>
+
+<!-- التحليل -->
+<div id="analysis" class="section">
+<div class="card">
+<h2>📈 التحليل</h2>
+<p>
+النشاط البكتيري الناتج عن التخمير أدى إلى إطلاق الإلكترونات، وتم التقاطها عبر الأقطاب.
+</p>
+<p>
+البيئة المتوسطة الحموضة ساعدت على استقرار البكتيريا وتحسين الإنتاج.
+</p>
+</div>
+</div>
+
+<!-- الرسم البياني -->
+<div id="chart" class="section">
+<div class="card">
+<h2>📊 الرسم البياني</h2>
+<canvas id="chartData"></canvas>
+</div>
+</div>
+
+<!-- الأثر -->
+<div id="impact" class="section">
+<div class="card">
+<h2>🌍 الأثر</h2>
+<p>
+نشر الوعي بالطاقة المستدامة وتحفيز الابتكار.
+</p>
+</div>
+</div>
+
+<!-- الاستدامة -->
+<div id="future" class="section">
+<div class="card">
+<h2>♻️ الاستدامة</h2>
+<p>
+إمكانية تطوير المشروع ليعمل على نطاق أوسع في محطات المعالجة.
+</p>
+</div>
+</div>
+
+<script>
+function show(id){
+document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+}
+
+function presentationMode(){
+document.body.style.fontSize = "22px";
+}
+
+/* تشغيل الرسم بعد تحميل الصفحة */
+window.onload = function() {
+const ctx = document.getElementById('chartData').getContext('2d');
+
+new Chart(ctx, {
+type: 'line',
+data: {
+labels: ['بداية','يوم1','يوم2','يوم3','يوم4','الناتج'],
+datasets: [{
+label: 'الجهد (فولت)',
+data: [0.3,0.8,1.2,1.6,1.9,2],
+borderWidth: 3
+}]
+},
+options: {
+plugins: {
+legend: {
+labels: { color: 'white' }
+}
+},
+scales: {
+x: {
+ticks: { color: 'white' }
+},
+y: {
+ticks: { color: 'white' }
+}
+}
+}
+});
+}
+</script>
+
+</body>
+</html>
